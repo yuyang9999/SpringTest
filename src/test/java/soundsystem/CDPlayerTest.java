@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by yangyu on 15/8/17.
@@ -14,6 +14,10 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=CDPlayerConfig.class)
 public class CDPlayerTest {
+
+    @Autowired
+    private MediaPlayer player;
+
     @Autowired
     private CompactDisc cd;
 
@@ -22,4 +26,8 @@ public class CDPlayerTest {
         assertNotNull(cd);
     }
 
+    @Test
+    public void play() {
+        player.play();
+    }
 }
